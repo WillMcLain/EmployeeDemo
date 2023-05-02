@@ -5,7 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeDemo.Views"
         mc:Ignorable="d"
+<<<<<<< Updated upstream
         Title="NewEmployeeForm" Height="200" Width="300">
+=======
+        Title="NewEmployeeForm" Height="450" Width="800">
+<<<<<<< Updated upstream
+ 
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

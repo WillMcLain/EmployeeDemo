@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:behaviors="clr-namespace:EmployeeDemo.Behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -14,7 +15,24 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5,0,5,0">
+<<<<<<< Updated upstream
+        <StackPanel 
+            behaviors:ResponsiveBehavior.IsResponsive="True"
+            behaviors:ResponsiveBehavior.HorizontalBreakpoint="500" 
+            Grid.Row="0" Grid.Column="0" 
+            Margin="5,0,5,0">
+=======
+        <StackPanel
+            Grid.Row="0" Grid.Column="0" Margin="5,0,5,0"
+            behaviors:ResponsiveBehavior.IsResponsive="True"
+            behaviors:ResponsiveBehavior.HorizontalBreakpoint="50">
+            <behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
+                <SetterBaseCollection>
+                    <Setter Property="StackPanel.Orientation" Value="Horizontal"/>
+                    <Setter Property="StackPanel.HorizontalAlignment" Value="Center"/>
+                </SetterBaseCollection>
+            </behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
+>>>>>>> Stashed changes
             <DockPanel Margin="0,5,0,0">
                 <Label Margin="0,5,5,0">Supervisors</Label>
                 <Button x:Name="btnCreateNew" HorizontalAlignment="Right" Margin="5,5,5,5" Command="{Binding Path=ClickNewSupervisorButton}">Create New Supervisor</Button>
@@ -34,8 +52,16 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,0,5,0">
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,0,5,0" 
+                    behaviors:ResponsiveBehavior.IsResponsive="True"
+                    behaviors:ResponsiveBehavior.HorizontalBreakpoint="50">
+            <behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
+                <SetterBaseCollection>
+                    <Setter Property="StackPanel.Orientation" Value="Horizontal"/>
+                    <Setter Property="StackPanel.HorizontalAlignment" Value="Center"/>
+                </SetterBaseCollection>
+            </behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
             <DockPanel Margin="0,5,0,0">
                 <Label Margin="0,5,5,0">Employees</Label>
                 <Button x:Name="btnCreateNewEmployee" HorizontalAlignment="Right" Margin="5,5,5,5" Command="{Binding Path=ClickNewEmployeeButton}">Create New Employee</Button>
@@ -45,8 +71,16 @@
         <ListView Grid.Row="1" Grid.Column="1"
             ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" 
             ScrollViewer.CanContentScroll="True"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
-        <ListView.View>
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            behaviors:ResponsiveBehavior.IsResponsive="True"
+            behaviors:ResponsiveBehavior.HorizontalBreakpoint="50">
+            <behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
+                <SetterBaseCollection>
+                    <Setter Property="StackPanel.Orientation" Value="Horizontal"/>
+                    <Setter Property="StackPanel.HorizontalAlignment" Value="Center"/>
+                </SetterBaseCollection>
+            </behaviors:ResponsiveBehavior.HorizontalBreakpointSetters>
+            <ListView.View>
             <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                 <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="100"/>
                 <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="100"/>
